@@ -1,0 +1,79 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eee;
+}
+button{
+    width: 15%;
+    background-color: #e53935;
+    cursor: pointer;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-weight: bold;
+    transition: .3s;
+}
+button:hover{
+    background-color: #fc3b38;
+}
+.container{
+    width: calc(100% - 10%);
+    margin: 80px auto;
+    text-align: center;
+}
+
+.container .input input{
+    padding: 7px;
+    border-radius: 6px;
+    border: none;
+    width: 80%;
+    border: 1px #e53935 solid;
+    border-color: transparent transparent #e53935;
+    caret-color: #e53935;
+    transition: .3s;
+}
+.container .input input:focus{
+    outline: none;
+}
+.container .input input::placeholder{
+    color: #e53935;   
+    transition: .3s;
+}
+.container .input input:focus::placeholder{
+    opacity: 0;
+}
+.container .input input:focus{
+    border-color: #e53935;
+}
+
+
+.container h3{
+    text-transform: capitalize;
+    color: #e53935;
+    cursor: default;
+}
+
+
+
+.container .your-list{
+    background-color: transparent;
+    margin: 40px 0;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.259)
+}
+.container .your-list .note{
+    border-radius: 3px;
+    padding: 5px;
+    margin: 10px;
+    background-color: #dedede;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.259);
+    display: flex;
+    justify-content: space-between;align-items: center;
+}
+.container .your-list span{
+    text-transform: capitalize;
+    color: #e53935;
+}
+
