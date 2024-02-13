@@ -35,6 +35,24 @@ document.addEventListener('click', function(event){
     }
 })
 
+document.addEventListener('click', function(event){
+
+    // if click 
+    if(event.target.classList.contains("active-btn")){
+
+        // put class active
+        event.target.classList.toggle("active")
+        
+        // put done line into (through) span
+        let preEle = event.target.previousElementSibling
+        if(event.target.classList.contains("active")){
+            preEle.style.textDecoration = "line-through"
+        }else {
+            preEle.style.textDecoration = "none"
+        }
+    }
+})
+
 // On Load Get Data From LocalStorage
 window.onload = function(){
      
@@ -44,6 +62,7 @@ window.onload = function(){
     // Get Data From LocalStorage
     if(window.localStorage.length <= 0){
         document.querySelector(".container h3").innerHTML = "you not have note";
+        contNote.style.display = "none";
     }
     else{
         document.querySelector(".container h3").innerHTML = "your note";
@@ -62,7 +81,7 @@ addBtn.onclick = function(){
         
         // Function Add Value In Local Storage
         addToLocalStorage(input.value);
-
+        
         input.value = ""
     }
 } 
@@ -74,15 +93,24 @@ function createNote(inputValue){
     myDiv.setAttribute("data-note", inputValue)
     myDiv.classList.add("note");
     
+    // create text node
     let mySpan = document.createElement("span");
     mySpan.appendChild(document.createTextNode(inputValue));
     
+    // create delete btn
     let myButton = document.createElement("button");
     myButton.classList.add("del-button");
     myButton.setAttribute("data-note", inputValue)
     myButton.appendChild(document.createTextNode('delete'));
+    
+    // create done btn
+    let myDoneBtn = document.createElement("button");
+    myDoneBtn.classList.add("active-btn");
+    myDoneBtn.setAttribute("data-done", inputValue)
+    myDoneBtn.appendChild(document.createTextNode('done'));
 
     myDiv.appendChild(mySpan);
+    myDiv.appendChild(myDoneBtn);
     myDiv.appendChild(myButton);
 
     contNote.appendChild(myDiv);
@@ -90,7 +118,6 @@ function createNote(inputValue){
 
 // Function Add Value In Local Storage
 function addToLocalStorage(inputValue){
-
     arrayOfTaskes.push(inputValue);
 
     window.localStorage.setItem("note", arrayOfTaskes)
