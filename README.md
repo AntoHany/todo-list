@@ -1,4 +1,5 @@
 # To Do List
-## HTML, CSS, JAVASCRIPT APPLICATION
-### SEE DIMO
- https://antohany.github.io/todo-list/
+## HTML, CSS, JAVASCRIPT
+### use LocalStorage
+
+### Take a LOOK => https://antohany.github.io/todo-list/
